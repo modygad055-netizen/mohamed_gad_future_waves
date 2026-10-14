@@ -1,0 +1,2083 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOHAMED GAD | Future Waves - الموقع الرسمي</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- JSZip Library for 1-Tap Android ZIP Project Download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <!-- Google Fonts: Cairo (Arabic), Cinzel (Luxury Display), Inter (English UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0a0a0a',
+                        charcoal: '#121215',
+                        charcoalLight: '#1e1e24',
+                        gold: '#d4af37',
+                        goldLight: '#F3E5AB',
+                        goldDark: '#AA771C',
+                    },
+                    fontFamily: {
+                        arabic: ['Cairo', 'sans-serif'],
+                        display: ['Cinzel', 'serif'],
+                        sans: ['Inter', 'Cairo', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'gold': '0 0 20px rgba(212, 175, 55, 0.25)',
+                        'gold-lg': '0 0 35px rgba(212, 175, 55, 0.45)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+            font-family: 'Cairo', 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        /* Luxury Gold Gradient Text */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #AA771C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Luxury Gold Button Gradient */
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #D4AF37 0%, #F3E5AB 50%, #AA771C 100%);
+            color: #09090b;
+        }
+        .gold-gradient-bg:hover {
+            background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #D4AF37 100%);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+        }
+        /* Subtle Gold Border */
+        .gold-border {
+            border: 1px solid rgba(212, 175, 55, 0.35);
+        }
+        .gold-border:hover {
+            border-color: rgba(212, 175, 55, 0.85);
+        }
+        /* Equalizer Bar Animations */
+        @keyframes eq-bounce-1 {
+            0%, 100% { height: 4px; }
+            50% { height: 22px; }
+        }
+        @keyframes eq-bounce-2 {
+            0%, 100% { height: 18px; }
+            40% { height: 5px; }
+            80% { height: 24px; }
+        }
+        @keyframes eq-bounce-3 {
+            0%, 100% { height: 8px; }
+            30% { height: 24px; }
+            70% { height: 6px; }
+        }
+        .eq-bar-1 { animation: eq-bounce-1 0.8s infinite ease-in-out; }
+        .eq-bar-2 { animation: eq-bounce-2 0.7s infinite ease-in-out; }
+        .eq-bar-3 { animation: eq-bounce-3 0.9s infinite ease-in-out; }
+        .eq-paused { animation-play-state: paused !important; height: 4px !important; }
+
+        /* Custom Range Slider for Audio Player */
+        input[type="range"].gold-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            background: #2a2a2e;
+            height: 6px;
+            border-radius: 999px;
+            cursor: pointer;
+        }
+        input[type="range"].gold-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #D4AF37;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.9);
+            cursor: pointer;
+            transition: transform 0.15s ease;
+        }
+        input[type="range"].gold-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.25);
+            background: #F3E5AB;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a2e;
+            border-radius: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col pb-32 selection:bg-gold selection:text-obsidian">
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed top-20 left-1/2 -translate-x-1/2 z-[100] flex flex-col gap-2 pointer-events-none w-11/12 max-w-md"></div>
+
+    <!-- ========================================================== -->
+    <!-- ANDROID BEGINNER HELPER BANNER: 1-TAP COMPLETE ZIP EXPORT  -->
+    <!-- ========================================================== -->
+    <div id="androidExportBanner" class="bg-gradient-to-r from-[#1c1605] via-[#121215] to-[#1c1605] border-b-2 border-gold/60 px-3 py-3 relative z-50">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div class="flex items-center gap-3 text-center sm:text-start">
+                <div class="w-10 h-10 rounded-xl gold-gradient-bg flex items-center justify-center text-obsidian text-lg font-bold flex-shrink-0 shadow-gold">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                </div>
+                <div>
+                    <div class="text-xs sm:text-sm font-black text-goldLight flex items-center justify-center sm:justify-start gap-2">
+                        <span data-i18n="zipBannerTitle">مساعد الهاتف (Android): تحميل المشروع الكامل (ZIP)</span>
+                        <span class="px-2 py-0.5 text-[10px] rounded-full bg-gold/20 text-gold border border-gold/40">GitHub + Render Ready</span>
+                    </div>
+                    <p class="text-[11px] sm:text-xs text-gray-300 mt-0.5" data-i18n="zipBannerSub">
+                        اضغط الزر الذهبي لتحميل ملف مضغوط (.zip) يحتوي على جميع ملفات الموقع الجاهزة للرفع على GitHub و Render.
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 w-full sm:w-auto justify-center">
+                <button onclick="downloadCompleteProjectZip()" id="zipDownloadBtn" class="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl gold-gradient-bg font-black text-xs sm:text-sm shadow-gold flex items-center justify-center gap-2 hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-file-zipper"></i>
+                    <span data-i18n="zipDownloadBtnText">تحميل المشروع كامل (ZIP)</span>
+                </button>
+                <button onclick="openSourceFilesModal()" class="px-3.5 py-2.5 rounded-xl bg-charcoal gold-border text-goldLight hover:bg-gold/15 font-bold text-xs flex items-center gap-1.5" title="View Source Files">
+                    <i class="fa-solid fa-code"></i>
+                    <span data-i18n="viewFilesBtnText">عرض الملفات</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-obsidian/90 backdrop-blur-md border-b border-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3">
+            <!-- Brand Logo -->
+            <a href="#hero" onclick="switchView('public')" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-xl gold-gradient-bg flex items-center justify-center shadow-gold group-hover:scale-105 transition-transform">
+                    <span class="font-display font-extrabold text-xl tracking-tighter text-obsidian">MG</span>
+                </div>
+                <div>
+                    <div class="font-display font-bold text-lg sm:text-xl tracking-wider gold-gradient-text leading-none">MOHAMED GAD</div>
+                    <div class="text-xs text-goldLight/80 font-medium tracking-widest mt-1" id="navBrandSub">FUTURE WAVES • أمواج المستقبل</div>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-6 text-sm font-semibold">
+                <a href="#hero" onclick="switchView('public')" class="text-gray-200 hover:text-gold transition-colors" data-i18n="navHome">الرئيسية</a>
+                <a href="#library" onclick="switchView('public')" class="text-gray-200 hover:text-gold transition-colors" data-i18n="navLibrary">مكتبة الأغاني</a>
+                <a href="#socials" onclick="switchView('public')" class="text-gray-200 hover:text-gold transition-colors" data-i18n="navSocials">المنصات الرسمية</a>
+            <!-- Action Controls (Language Toggle + Quick Android ZIP Button + Mobile Admin Button) -->
+            <div class="flex items-center gap-2">
+                <!-- Quick Nav ZIP Button for Android -->
+                <button onclick="downloadCompleteProjectZip()" class="px-3 py-2 rounded-xl gold-gradient-bg text-obsidian font-black text-xs shadow-gold flex items-center gap-1.5 hover:scale-105 transition-transform" title="Download Complete Project ZIP">
+                    <i class="fa-solid fa-file-zipper"></i>
+                    <span data-i18n="navZipShort">حمل المشروع كامل (ZIP)</span>
+                </button>
+
+                <!-- Bilingual Toggle Button -->
+                <button id="langToggleBtn" onclick="toggleLanguage()" class="px-3 py-2 rounded-xl bg-charcoal gold-border text-xs sm:text-sm font-bold text-goldLight hover:bg-gold hover:text-obsidian transition-all flex items-center gap-1.5">
+                    <i class="fa-solid fa-globe"></i>
+                    <span id="langToggleText">English</span>
+                </button>
+
+                <!-- Mobile Admin Button -->
+                <button onclick="openAdminView()" class="md:hidden px-3 py-2 rounded-xl bg-charcoal gold-border text-gold hover:bg-gold/10 transition-all text-xs font-bold flex items-center gap-1.5" title="Admin Dashboard">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span data-i18n="navAdminShort">الإدارة</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- MAIN PUBLIC VIEW                           -->
+    <!-- ========================================== -->
+    <main id="publicView" class="flex-grow">
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="relative overflow-hidden py-12 sm:py-20 lg:py-24 border-b border-gold/15">
+            <!-- Luxury Ambient Background Glows -->
+            <div class="absolute -top-32 -right-32 w-96 h-96 bg-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-goldDark/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    
+                    <!-- Hero Text Column -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-start">
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-charcoal gold-border text-goldLight text-xs sm:text-sm font-semibold">
+                            <span class="w-2 h-2 rounded-full bg-gold animate-ping"></span>
+                            <span data-i18n="heroBadge">الإصدار الرسمي • أمواج المستقبل للإنتاج الفني</span>
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+                            <span class="block text-white" data-i18n="heroTitle1">محمد جاد</span>
+                            <span class="font-display gold-gradient-text block mt-1">MOHAMED GAD</span>
+                        </h1>
+
+                        <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed" data-i18n="heroDesc">
+                            مرحباً بكم في المنصة الرسمية للفنان محمد جاد وعلامة Future Waves (أمواج المستقبل). استمع إلى أحدث المواويل، المهرجانات، والأغاني الشعبية والهيب هوب المصري بجودة عالية مع كلمات الأغاني الكاملة.
+                        </p>
+
+                        <!-- Hero CTA Buttons -->
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                            <button onclick="playFeaturedTrack()" class="px-7 py-3.5 rounded-xl gold-gradient-bg font-bold text-sm sm:text-base flex items-center gap-3 shadow-gold transition-all transform hover:-translate-y-0.5">
+                                <i class="fa-solid fa-play"></i>
+                                <span data-i18n="heroPlayBtn">تشغيل أحدث الأعمال الآن</span>
+                            </button>
+
+                            <a href="#library" class="px-6 py-3.5 rounded-xl bg-charcoal gold-border text-goldLight hover:bg-gold/10 font-bold text-sm sm:text-base flex items-center gap-2.5 transition-all">
+                                <i class="fa-solid fa-compact-disc text-gold"></i>
+                                <span data-i18n="heroExploreBtn">تصفح مكتبة الأغاني</span>
+                            </a>
+                        </div>
+
+                        <!-- Quick Stats -->
+                        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10 max-w-lg mx-auto lg:mx-0">
+                            <div>
+                                <div class="text-2xl sm:text-3xl font-extrabold gold-gradient-text" id="statTotalSongs">8</div>
+                                <div class="text-xs text-gray-400 mt-0.5" data-i18n="statSongsLabel">أعمال غنائية أصلية</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl sm:text-3xl font-extrabold gold-gradient-text">100%</div>
+                                <div class="text-xs text-gray-400 mt-0.5" data-i18n="statLyricsLabel">كلمات وتوزيع أصلي</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl sm:text-3xl font-extrabold gold-gradient-text">24/7</div>
+                                <div class="text-xs text-gray-400 mt-0.5" data-i18n="statStreamLabel">استماع مباشر</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Featured Vinyl / Spotlight Card -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-charcoal/90 rounded-3xl p-6 sm:p-8 gold-border shadow-gold relative overflow-hidden group">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-xs font-bold uppercase tracking-widest text-gold flex items-center gap-2">
+                                    <i class="fa-solid fa-crown"></i>
+                                    <span data-i18n="featuredSpotLabel">عمل مميز • FEATURED</span>
+                                </span>
+                                <span class="text-xs px-2.5 py-1 rounded-full bg-gold/15 text-goldLight border border-gold/30" id="heroFeaturedGenre">موال / شعبي</span>
+                            </div>
+
+                            <!-- Dynamic Artwork Container -->
+                            <div id="heroArtworkBox" onclick="playFeaturedTrack()" class="cursor-pointer relative aspect-square rounded-2xl overflow-hidden mb-5 border border-gold/30 shadow-lg">
+                                <!-- Rendered via JS -->
+                            </div>
+
+                            <div class="flex items-center justify-between gap-4">
+                                <div>
+                                    <h3 id="heroFeaturedTitle" class="text-xl sm:text-2xl font-bold text-white">يا بحر يا بعيد</h3>
+                                    <p class="text-sm text-goldLight/80 mt-0.5">MOHAMED GAD • Future Waves</p>
+                                </div>
+                                <button onclick="playFeaturedTrack()" class="w-14 h-14 rounded-2xl gold-gradient-bg flex items-center justify-center text-obsidian text-xl shadow-gold hover:scale-105 transition-transform flex-shrink-0">
+                                    <i class="fa-solid fa-play" id="heroCardPlayIcon"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SONG LIBRARY SECTION -->
+        <section id="library" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                <div>
+                    <div class="text-xs font-bold uppercase tracking-widest text-gold mb-2" data-i18n="libSubheader">OFFICIAL DISCOGRAPHY • الأرشيف الغنائي</div>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white" data-i18n="libHeader">مكتبة أغاني محمد جاد</h2>
+                </div>
+
+                <!-- Search Input -->
+                <div class="relative w-full md:w-80">
+                    <i class="fa-solid fa-magnifying-glass absolute top-1/2 -translate-y-1/2 start-4 text-gold/70"></i>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        oninput="renderSongLibrary()"
+                        placeholder="ابحث باسم الأغنية أو الكلمات..." 
+                        class="w-full ps-11 pe-4 py-3 rounded-xl bg-charcoal gold-border text-sm text-white placeholder-gray-400 focus:outline-none focus:border-gold"
+                    >
+                </div>
+            </div>
+
+            <!-- Genre Filter Pills -->
+            <div class="flex items-center gap-2.5 overflow-x-auto pb-4 mb-8 no-scrollbar" id="genreFilterContainer">
+                <button onclick="setGenreFilter('ALL')" data-genre="ALL" class="genre-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all gold-gradient-bg">
+                    <span data-i18n="filterAll">الكل (All)</span>
+                </button>
+                <button onclick="setGenreFilter('Mahraganat')" data-genre="Mahraganat" class="genre-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all bg-charcoal gold-border text-gray-300 hover:text-gold">
+                    <span data-i18n="filterMahraganat">مهرجانات (Mahraganat)</span>
+                </button>
+                <button onclick="setGenreFilter('Mawal')" data-genre="Mawal" class="genre-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all bg-charcoal gold-border text-gray-300 hover:text-gold">
+                    <span data-i18n="filterMawal">موال (Mawal)</span>
+                </button>
+                <button onclick="setGenreFilter('Shaabi')" data-genre="Shaabi" class="genre-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all bg-charcoal gold-border text-gray-300 hover:text-gold">
+                    <span data-i18n="filterShaabi">شعبي (Shaabi)</span>
+                </button>
+                <button onclick="setGenreFilter('Hip-Hop')" data-genre="Hip-Hop" class="genre-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all bg-charcoal gold-border text-gray-300 hover:text-gold">
+                    <span data-i18n="filterHipHop">هيب هوب (Hip-Hop)</span>
+                </button>
+                <button onclick="setGenreFilter('Vocal')" data-genre="Vocal" class="genre-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all bg-charcoal gold-border text-gray-300 hover:text-gold">
+                    <span data-i18n="filterVocal">رومانسي / نشيد (Vocal)</span>
+                </button>
+            </div>
+
+            <!-- Song Cards Grid -->
+            <div id="songsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Populated dynamically by JavaScript -->
+            </div>
+        </section>
+
+        <!-- SOCIAL MEDIA & STREAMING HUB -->
+        <section id="socials" class="py-16 bg-charcoal/50 border-t border-gold/15">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <div class="text-xs font-bold uppercase tracking-widest text-gold mb-2" data-i18n="socialSubheader">CONNECT WITH US • تابعنا الآن</div>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white" data-i18n="socialHeader">المنصات الرسمية لـ محمد جاد</h2>
+                    <p class="text-sm text-gray-400 mt-3" data-i18n="socialDesc">
+                        تابع القناة الرسمية على يوتيوب وحسابات أمواج المستقبل (Future Waves) على كافة منصات التواصل الاجتماعي للاستماع لكل جديد فور صدوره.
+                    </p>
+                </div>
+
+                <div id="socialCardsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+                    <!-- Populated dynamically by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="bg-obsidian border-t border-gold/20 py-10 text-center text-sm text-gray-400">
+            <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg gold-gradient-bg flex items-center justify-center font-display font-bold text-obsidian text-xs">MG</div>
+                    <span class="font-bold text-white">MOHAMED GAD &amp; Future Waves (أمواج المستقبل)</span>
+                </div>
+                <div data-i18n="footerRights">
+                    جميع الحقوق محفوظة © 2026 محمد جاد - كلمات وتوزيع وإنتاج أمواج المستقبل.
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- SECURE ADMIN DASHBOARD VIEW                -->
+    <!-- ========================================== -->
+    <section id="adminView" class="hidden flex-grow py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        
+        <!-- ADMIN LOGIN GATE -->
+        <div id="adminLoginGate" class="max-w-md mx-auto bg-charcoal rounded-3xl p-8 gold-border shadow-gold my-10 text-center">
+            <div class="w-16 h-16 rounded-2xl gold-gradient-bg flex items-center justify-center mx-auto mb-5 text-obsidian text-2xl shadow-gold">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <h2 class="text-2xl font-black text-white mb-2" data-i18n="adminGateTitle">بوابة الإدارة الآمنة</h2>
+            <p class="text-xs sm:text-sm text-gray-400 mb-6" data-i18n="adminGateSubtitle">
+                أدخل رمز المرور السري للوصول إلى لوحة تحكم محمد جاد وإدارة الأغاني والروابط.
+            </p>
+            <div class="inline-block px-3 py-1 rounded-lg bg-gold/10 border border-gold/30 text-goldLight text-xs mb-5">
+                <i class="fa-solid fa-key me-1"></i>
+                <span data-i18n="adminPinHint">رمز الدخول الافتراضي للتجربة:</span> <strong class="font-mono text-gold">2026</strong>
+            </div>
+
+            <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+                <input 
+                    type="password" 
+                    id="adminPinInput" 
+                    placeholder="أدخل الرمز السري (2026)" 
+                    class="w-full px-4 py-3.5 rounded-xl bg-obsidian gold-border text-center text-xl tracking-widest font-mono text-gold focus:outline-none focus:border-gold"
+                    required
+                >
+                <div class="flex gap-3">
+                    <button type="submit" class="flex-1 py-3.5 rounded-xl gold-gradient-bg font-bold text-sm shadow-gold">
+                        <i class="fa-solid fa-unlock-keyhole me-1"></i>
+                        <span data-i18n="adminLoginBtn">دخول للوحة التحكم</span>
+                    </button>
+                    <button type="button" onclick="switchView('public')" class="px-5 py-3.5 rounded-xl bg-obsidian gold-border text-gray-300 hover:text-white text-sm font-bold">
+                        <span data-i18n="cancelBtn">إلغاء</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- UNLOCKED ADMIN DASHBOARD CONTENT -->
+        <div id="adminDashboardContent" class="hidden space-y-10">
+            <!-- Top Admin Header -->
+            <div class="flex flex-wrap items-center justify-between gap-4 bg-charcoal p-6 rounded-2xl gold-border">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-gold">FUTURE WAVES STUDIO CMS</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-white mt-1" data-i18n="adminDashTitle">لوحة تحكم الفنان محمد جاد</h2>
+                </div>
+                <div class="flex flex-wrap items-center gap-3">
+                    <button onclick="downloadCompleteProjectZip()" class="px-4 py-2.5 rounded-xl gold-gradient-bg font-bold text-xs sm:text-sm shadow-gold flex items-center gap-2">
+                        <i class="fa-solid fa-file-zipper"></i>
+                        <span data-i18n="adminDownloadZipBtn">تحميل المشروع الكامل (ZIP) بجميع تعديلاتك</span>
+                    </button>
+                    <button onclick="resetDefaultCatalog()" class="px-4 py-2.5 rounded-xl bg-red-950/60 border border-red-500/40 text-red-300 hover:bg-red-900/60 font-bold text-xs sm:text-sm transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        <span data-i18n="adminResetBtn">استعادة الأغاني الافتراضية</span>
+                    </button>
+                    <button onclick="switchView('public')" class="px-4 py-2.5 rounded-xl bg-obsidian gold-border text-goldLight font-bold text-xs sm:text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <span data-i18n="adminBackToSite">العودة للموقع</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- ADD / EDIT SONG FORM (5 Columns) -->
+                <div class="lg:col-span-5 bg-charcoal p-6 rounded-2xl gold-border h-fit">
+                    <div class="flex items-center justify-between mb-6 pb-3 border-b border-white/10">
+                        <h3 id="songFormHeading" class="text-xl font-bold text-gold flex items-center gap-2">
+                            <i class="fa-solid fa-plus-circle"></i>
+                            <span data-i18n="adminAddSongTitle">إضافة أغنية جديدة</span>
+                        </h3>
+                        <button type="button" id="cancelEditBtn" onclick="resetSongForm()" class="hidden text-xs px-3 py-1 rounded-lg bg-white/10 text-gray-300 hover:text-white">
+                            إلغاء التعديل
+                        </button>
+                    </div>
+
+                    <form id="songCrudForm" onsubmit="handleSaveSong(event)" class="space-y-4 text-sm">
+                        <input type="hidden" id="editSongId">
+
+                        <div>
+                            <label class="block text-gray-300 font-semibold mb-1.5" data-i18n="formTitleAr">اسم الأغنية (بالعربية) *</label>
+                            <input type="text" id="songTitleInput" required placeholder="مثال: يا بحر يا بعيد" class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian gold-border text-white focus:outline-none focus:border-gold">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-gray-300 font-semibold mb-1.5" data-i18n="formTitleEn">الاسم بالإنجليزية</label>
+                                <input type="text" id="songTitleEnInput" placeholder="Ya Bahr Ya Ba'eed" class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian gold-border text-white focus:outline-none focus:border-gold">
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 font-semibold mb-1.5" data-i18n="formGenre">التصنيف الموسيقي *</label>
+                                <select id="songGenreInput" class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian gold-border text-white focus:outline-none focus:border-gold">
+                                    <option value="Mawal">موال / شعبي (Mawal)</option>
+                                    <option value="Mahraganat">مهرجانات (Mahraganat)</option>
+                                    <option value="Hip-Hop">هيب هوب مصري (Hip-Hop)</option>
+                                    <option value="Shaabi">شعبي أصيل (Shaabi)</option>
+                                    <option value="Vocal">رومانسي / نشيد (Vocal)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Audio Source: Direct URL or Local MP3 Upload -->
+                        <div class="p-3.5 rounded-xl bg-obsidian/80 border border-gold/20 space-y-3">
+                            <label class="block text-goldLight font-bold text-xs uppercase tracking-wider">
+                                <i class="fa-solid fa-music me-1"></i>
+                                <span data-i18n="formAudioSection">ملف الصوت (رابط MP3 مباشر أو رفع من هاتفك)</span>
+                            </label>
+                            <input type="url" id="songAudioUrlInput" placeholder="https://example.com/song.mp3" class="w-full px-3 py-2 rounded-lg bg-charcoal gold-border text-xs text-white focus:outline-none">
+                            <div>
+                                <label class="block text-xs text-gray-400 mb-1" data-i18n="formUploadMp3Label">أو اختر ملف MP3/WAV من هاتفك للتشغيل الفوري:</label>
+                                <input type="file" id="songAudioFileInput" accept="audio/*" onchange="handleLocalAudioUpload(event)" class="text-xs text-gray-300 file:me-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-gold file:text-obsidian hover:file:bg-goldLight cursor-pointer w-full">
+                            </div>
+                        </div>
+
+                        <!-- Cover Art: URL or Local Image Upload -->
+                        <div class="p-3.5 rounded-xl bg-obsidian/80 border border-gold/20 space-y-3">
+                            <label class="block text-goldLight font-bold text-xs uppercase tracking-wider">
+                                <i class="fa-solid fa-image me-1"></i>
+                                <span data-i18n="formCoverSection">صورة الغلاف (اختياري - يتم توليد غلاف ذهبي تلقائياً)</span>
+                            </label>
+                            <input type="url" id="songCoverUrlInput" placeholder="https://example.com/cover.jpg" class="w-full px-3 py-2 rounded-lg bg-charcoal gold-border text-xs text-white focus:outline-none">
+                            <div>
+                                <input type="file" id="songCoverFileInput" accept="image/*" onchange="handleLocalCoverUpload(event)" class="text-xs text-gray-300 file:me-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-gold/20 file:text-goldLight cursor-pointer w-full">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-gray-300 font-semibold mb-1">رابط YouTube</label>
+                                <input type="url" id="songYoutubeInput" placeholder="https://youtube.com/..." class="w-full px-3 py-2 rounded-xl bg-obsidian gold-border text-xs text-white">
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 font-semibold mb-1">رابط SoundCloud</label>
+                                <input type="url" id="songSoundcloudInput" placeholder="https://soundcloud.com/..." class="w-full px-3 py-2 rounded-xl bg-obsidian gold-border text-xs text-white">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-gray-300 font-semibold mb-1.5" data-i18n="formLyricsLabel">كلمات الأغنية الكاملة *</label>
+                            <textarea id="songLyricsInput" rows="5" required placeholder="اكتب كلمات الأغنية هنا..." class="w-full px-3.5 py-2.5 rounded-xl bg-obsidian gold-border text-white text-sm leading-relaxed focus:outline-none focus:border-gold"></textarea>
+                        </div>
+
+                        <label class="flex items-center gap-2.5 cursor-pointer pt-1">
+                            <input type="checkbox" id="songFeaturedInput" class="w-4 h-4 accent-gold rounded">
+                            <span class="text-gray-200 font-semibold text-xs sm:text-sm" data-i18n="formFeaturedCheck">تعيين كعمل مميز في الواجهة الرئيسية (Featured)</span>
+                        </label>
+
+                        <button type="submit" class="w-full py-3.5 rounded-xl gold-gradient-bg font-bold text-sm shadow-gold flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <span id="songSubmitBtnText" data-i18n="formSaveBtn">حفظ الأغنية في المكتبة</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- MANAGE SONGS TABLE & SOCIAL SETTINGS (7 Columns) -->
+                <div class="lg:col-span-7 space-y-8">
+                    
+                    <!-- Manage Existing Songs Table -->
+                    <div class="bg-charcoal p-6 rounded-2xl gold-border">
+                        <h3 class="text-xl font-bold text-gold mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-list-check"></i>
+                            <span data-i18n="adminManageSongsTitle">إدارة الأغاني الحالية</span>
+                        </h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-start border-collapse text-sm">
+                                <thead>
+                                    <tr class="border-b border-white/10 text-gray-400 text-xs uppercase">
+                                        <th class="py-3 px-2 text-start" data-i18n="tableColSong">الأغنية</th>
+                                        <th class="py-3 px-2 text-start" data-i18n="tableColGenre">التصنيف</th>
+                                        <th class="py-3 px-2 text-center" data-i18n="tableColFeatured">مميز</th>
+                                        <th class="py-3 px-2 text-end" data-i18n="tableColActions">إجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="adminSongsTableBody" class="divide-y divide-white/5">
+                                    <!-- Populated via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Social Links & Security Manager -->
+                    <div class="bg-charcoal p-6 rounded-2xl gold-border">
+                        <h3 class="text-xl font-bold text-gold mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-share-nodes"></i>
+                            <span data-i18n="adminSocialsTitle">تحديث روابط المنصات ورمز الأمان</span>
+                        </h3>
+                        <form onsubmit="handleSaveSettings(event)" class="space-y-4 text-sm">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs text-gray-300 mb-1"><i class="fa-brands fa-youtube text-red-500 me-1"></i> YouTube URL</label>
+                                    <input type="url" id="setYoutube" class="w-full px-3 py-2 rounded-xl bg-obsidian gold-border text-xs text-white">
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-gray-300 mb-1"><i class="fa-brands fa-soundcloud text-orange-400 me-1"></i> SoundCloud URL</label>
+                                    <input type="url" id="setSoundcloud" class="w-full px-3 py-2 rounded-xl bg-obsidian gold-border text-xs text-white">
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-gray-300 mb-1"><i class="fa-brands fa-tiktok text-pink-400 me-1"></i> TikTok URL</label>
+                                    <input type="url" id="setTiktok" class="w-full px-3 py-2 rounded-xl bg-obsidian gold-border text-xs text-white">
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-gray-300 mb-1"><i class="fa-brands fa-facebook text-blue-500 me-1"></i> Facebook URL</label>
+                                    <input type="url" id="setFacebook" class="w-full px-3 py-2 rounded-xl bg-obsidian gold-border text-xs text-white">
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-gray-300 mb-1"><i class="fa-brands fa-instagram text-purple-400 me-1"></i> Instagram URL</label>
+                                    <input type="url" id="setInstagram" class="w-full px-3 py-2 rounded-xl bg-obsidian gold-border text-xs text-white">
+                                </div>
+                                <div>
+                                    <label class="block text-xs text-goldLight mb-1"><i class="fa-solid fa-key text-gold me-1"></i> رمز الدخول السري (Admin PIN)</label>
+                                    <input type="text" id="setAdminPin" required class="w-full px-3 py-2 rounded-xl bg-obsidian gold-border text-xs text-gold font-mono">
+                                </div>
+                            </div>
+                            <button type="submit" class="px-6 py-2.5 rounded-xl gold-gradient-bg font-bold text-xs sm:text-sm shadow-gold">
+                                <i class="fa-solid fa-check me-1"></i>
+                                <span data-i18n="saveSettingsBtn">حفظ الروابط والإعدادات</span>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- VIEW ALL PROJECT SOURCE FILES MODAL        -->
+    <!-- ========================================== -->
+    <div id="sourceFilesModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-charcoal gold-border rounded-3xl max-w-3xl w-full max-h-[85vh] flex flex-col shadow-gold-lg overflow-hidden">
+            <div class="p-5 border-b border-gold/20 flex items-center justify-between bg-obsidian/70">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-gold">COMPLETE PROJECT FILES</span>
+                    <h3 class="text-xl font-black text-white mt-0.5">ملفات المشروع الكامل (GitHub &amp; Render)</h3>
+                </div>
+                <button onclick="closeSourceFilesModal()" class="w-9 h-9 rounded-xl bg-charcoalLight gold-border text-gray-300 hover:text-gold flex items-center justify-center">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-5 overflow-y-auto space-y-5 text-xs" dir="ltr">
+                <div class="p-4 rounded-2xl bg-obsidian border border-gold/30">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-bold text-gold">1. package.json (Render Node.js &amp; Static Config)</span>
+                        <button onclick="copySourceFile('package')" class="px-3 py-1 rounded-lg bg-gold text-obsidian font-bold">Copy package.json</button>
+                    </div>
+                    <pre id="previewPackageJson" class="overflow-x-auto text-gray-300 font-mono text-[11px]"></pre>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-obsidian border border-gold/30">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-bold text-gold">2. server.js (Zero-Dependency Node.js HTTP Server)</span>
+                        <button onclick="copySourceFile('server')" class="px-3 py-1 rounded-lg bg-gold text-obsidian font-bold">Copy server.js</button>
+                    </div>
+                    <pre id="previewServerJs" class="overflow-x-auto text-gray-300 font-mono text-[11px]"></pre>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-obsidian border border-gold/30">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-bold text-gold">3. render.yaml (Render Automatic Blueprint)</span>
+                        <button onclick="copySourceFile('render')" class="px-3 py-1 rounded-lg bg-gold text-obsidian font-bold">Copy render.yaml</button>
+                    </div>
+                    <pre id="previewRenderYaml" class="overflow-x-auto text-gray-300 font-mono text-[11px]"></pre>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-obsidian border border-gold/30">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-bold text-gold">4. README.md (Arabic &amp; English Deployment Guide)</span>
+                        <button onclick="copySourceFile('readme')" class="px-3 py-1 rounded-lg bg-gold text-obsidian font-bold">Copy README.md</button>
+                    </div>
+                    <pre id="previewReadmeMd" class="overflow-x-auto text-gray-300 font-mono text-[11px]"></pre>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-obsidian border border-gold/30">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-bold text-gold">5. index.html (Complete Website Application)</span>
+                        <button onclick="copySourceFile('html')" class="px-3 py-1 rounded-lg bg-gold text-obsidian font-bold">Copy index.html</button>
+                    </div>
+                    <p class="text-gray-400">Included automatically inside <code>mohamed-gad-future-waves-project.zip</code> (in both root <code>index.html</code> and <code>public/index.html</code>).</p>
+                </div>
+            </div>
+            <div class="p-4 bg-obsidian border-t border-gold/20 flex items-center justify-between">
+                <button onclick="downloadCompleteProjectZip()" class="px-5 py-2.5 rounded-xl gold-gradient-bg font-bold text-xs sm:text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-file-zipper"></i>
+                    <span>Download All as .ZIP</span>
+                </button>
+                <button onclick="closeSourceFilesModal()" class="px-5 py-2 rounded-xl bg-charcoal gold-border text-gray-300 text-xs font-bold">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- LYRICS SLIDE-UP MODAL                      -->
+    <!-- ========================================== -->
+    <div id="lyricsModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-charcoal gold-border rounded-3xl max-w-2xl w-full max-h-[85vh] flex flex-col shadow-gold-lg overflow-hidden animate-fade-in">
+            <!-- Modal Header -->
+            <div class="p-5 sm:p-6 border-b border-gold/20 flex items-center justify-between bg-obsidian/60">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-gold" id="lyricsModalGenre">موال / شعبي</span>
+                    <h3 class="text-2xl font-black text-white mt-0.5" id="lyricsModalTitle">يا بحر يا بعيد</h3>
+                    <p class="text-xs text-goldLight/80 mt-1" data-i18n="lyricsCredits">كلمات وتوزيع: محمد جاد | Words &amp; Arrangement: Mohamed Gad</p>
+                </div>
+                <button onclick="closeLyricsModal()" class="w-10 h-10 rounded-xl bg-charcoalLight gold-border text-gray-300 hover:text-gold flex items-center justify-center text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body (Lyrics Text) -->
+            <div class="p-6 sm:p-8 overflow-y-auto flex-grow text-center">
+                <pre id="lyricsModalBody" class="whitespace-pre-wrap font-arabic text-base sm:text-lg leading-loose text-gray-100"></pre>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-4 bg-obsidian/80 border-t border-gold/20 flex items-center justify-between">
+                <button onclick="playSongFromLyricsModal()" class="px-5 py-2.5 rounded-xl gold-gradient-bg font-bold text-xs sm:text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-play"></i>
+                    <span data-i18n="playThisTrackBtn">تشغيل الأغنية</span>
+                </button>
+                <button onclick="closeLyricsModal()" class="px-5 py-2.5 rounded-xl bg-charcoal gold-border text-gray-300 hover:text-white text-xs sm:text-sm font-bold" data-i18n="closeBtn">
+                    إغلاق
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PERSISTENT BOTTOM MUSIC PLAYER BAR         -->
+    <!-- ========================================== -->
+    <div class="fixed bottom-0 inset-x-0 z-40 bg-obsidian/95 backdrop-blur-xl border-t border-gold/30 shadow-gold-lg">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3">
+            <div class="grid grid-cols-12 items-center gap-3">
+                
+                <!-- Track Info & Equalizer (4 Cols on Desktop, 7 on Mobile) -->
+                <div class="col-span-7 md:col-span-4 flex items-center gap-3 min-w-0">
+                    <div id="playerMiniCover" class="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 border border-gold/40 bg-charcoal flex items-center justify-center">
+                        <!-- Mini SVG cover -->
+                    </div>
+                    <div class="min-w-0 flex-1">
+                        <div class="flex items-center gap-2">
+                            <h4 id="playerTrackTitle" class="font-bold text-sm sm:text-base text-white truncate">يا بحر يا بعيد</h4>
+                            <!-- Animated Gold Equalizer Bars -->
+                            <div class="flex items-end gap-0.5 h-5 flex-shrink-0" id="equalizerBars">
+                                <span class="w-1 bg-gold rounded-full eq-bar-1 eq-paused"></span>
+                                <span class="w-1 bg-goldLight rounded-full eq-bar-2 eq-paused"></span>
+                                <span class="w-1 bg-gold rounded-full eq-bar-3 eq-paused"></span>
+                            </div>
+                        </div>
+                        <p id="playerTrackSub" class="text-xs text-goldLight/75 truncate">MOHAMED GAD • Future Waves</p>
+                    </div>
+                </div>
+
+                <!-- Transport & Seek Bar (5 Cols on Desktop, 5 on Mobile) -->
+                <div class="col-span-5 md:col-span-5 flex flex-col items-end md:items-center justify-center">
+                    <div class="flex items-center gap-3 sm:gap-5">
+                        <button onclick="toggleShuffle()" id="shuffleBtn" class="hidden sm:inline-flex text-gray-400 hover:text-gold text-xs transition-colors" title="Shuffle">
+                            <i class="fa-solid fa-shuffle"></i>
+                        </button>
+                        <button onclick="prevTrack()" class="text-gray-200 hover:text-gold text-base sm:text-lg transition-colors" title="Previous">
+                            <i class="fa-solid fa-backward-step"></i>
+                        </button>
+                        <button onclick="togglePlayPause()" id="mainPlayBtn" class="w-10 h-10 sm:w-11 sm:h-11 rounded-full gold-gradient-bg flex items-center justify-center text-obsidian text-base shadow-gold hover:scale-105 transition-transform">
+                            <i class="fa-solid fa-play" id="mainPlayIcon"></i>
+                        </button>
+                        <button onclick="nextTrack()" class="text-gray-200 hover:text-gold text-base sm:text-lg transition-colors" title="Next">
+                            <i class="fa-solid fa-forward-step"></i>
+                        </button>
+                        <button onclick="toggleRepeat()" id="repeatBtn" class="hidden sm:inline-flex text-gray-400 hover:text-gold text-xs transition-colors" title="Repeat">
+                            <i class="fa-solid fa-repeat"></i>
+                        </button>
+                    </div>
+
+                    <!-- Seek Bar (Visible on Desktop & Below on Mobile) -->
+                    <div class="hidden md:flex items-center gap-2.5 w-full max-w-md mt-1.5" dir="ltr">
+                        <span id="currentTimeText" class="text-[11px] font-mono text-gray-400 w-9 text-right">0:00</span>
+                        <input 
+                            type="range" 
+                            id="seekSlider" 
+                            min="0" 
+                            max="100" 
+                            value="0" 
+                            oninput="handleSeek(this.value)"
+                            class="gold-slider flex-1"
+                        >
+                        <span id="durationTimeText" class="text-[11px] font-mono text-gray-400 w-9">3:20</span>
+                    </div>
+                </div>
+
+                <!-- Volume & Lyrics Button (3 Cols on Desktop) -->
+                <div class="hidden md:flex md:col-span-3 items-center justify-end gap-3">
+                    <button onclick="openCurrentTrackLyrics()" class="px-3.5 py-2 rounded-xl bg-charcoal gold-border text-goldLight hover:bg-gold hover:text-obsidian text-xs font-bold transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-align-center"></i>
+                        <span data-i18n="playerLyricsBtn">كلمات الأغنية</span>
+                    </button>
+
+                    <div class="flex items-center gap-2" dir="ltr">
+                        <button onclick="toggleMute()" id="muteBtn" class="text-gray-300 hover:text-gold text-sm w-6">
+                            <i class="fa-solid fa-volume-high" id="volumeIcon"></i>
+                        </button>
+                        <input 
+                            type="range" 
+                            id="volumeSlider" 
+                            min="0" 
+                            max="1" 
+                            step="0.05" 
+                            value="0.85" 
+                            oninput="handleVolume(this.value)"
+                            class="gold-slider w-20"
+                        >
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Mobile Seek Bar + Lyrics Row -->
+            <div class="flex md:hidden items-center gap-2 mt-2 pt-1.5 border-t border-white/5" dir="ltr">
+                <span id="mobileCurrentTime" class="text-[10px] font-mono text-gray-400">0:00</span>
+                <input 
+                    type="range" 
+                    id="mobileSeekSlider" 
+                    min="0" 
+                    max="100" 
+                    value="0" 
+                    oninput="handleSeek(this.value)"
+                    class="gold-slider flex-1"
+                >
+                <span id="mobileDurationTime" class="text-[10px] font-mono text-gray-400">3:20</span>
+                <button onclick="openCurrentTrackLyrics()" class="ms-2 px-2.5 py-1 rounded-lg bg-charcoal gold-border text-goldLight text-[11px] font-bold">
+                    <i class="fa-solid fa-align-center me-1"></i><span data-i18n="playerLyricsShort">الكلمات</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden HTML5 Audio Element -->
+    <audio id="htmlAudioElement" preload="metadata" crossorigin="anonymous"></audio>
+
+    <!-- ========================================== -->
+    <!-- APPLICATION JAVASCRIPT                     -->
+    <!-- ========================================== -->
+    <script>
+        /**************************************************************
+         * 1. DEFAULT CATALOG & SETTINGS (PRE-LOADED FOR MOHAMED GAD)
+         **************************************************************/
+        /*__SONGS_START__*/
+        const DEFAULT_SONGS = [
+            {
+                id: 'song-1',
+                title: 'يا بحر يا بعيد',
+                titleEn: "Ya Bahr Ya Ba'eed",
+                genre: 'Mawal',
+                genreLabelAr: 'موال / شعبي',
+                genreLabelEn: 'Mawal / Shaabi',
+                featured: true,
+                audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+                coverUrl: '',
+                youtubeUrl: 'https://www.youtube.com/@mohamedgad4-gado',
+                soundcloudUrl: 'https://soundcloud.com',
+                synthStyle: 'mawal',
+                lyrics: `يا بحر يا بعيد.. شايل هموم الناس ومين يحس بيك؟
+الموج يعلّي في قلبي، وأنا واقف على شطّك أناديك
+يا دنيا غرّابة، ضحكتها مرّارة، والغدر فيها يزيد
+كتبت اسمي على الرمل، جت الموجة مسحته من جديد
+
+آه يا زمن العجايب.. الأصيل فيك يتظلم
+واللي باع العِشرة يمشي في وسط الناس يبتسم
+بس إحنا ولاد الأصول، كلمتنا سيف ما ينثلم
+محمد جاد يقول الحق، لو حتى الجبل ينهدم!`
+            },
+            {
+                id: 'song-2',
+                title: 'أبو وشّين',
+                titleEn: 'Abu Weshain',
+                genre: 'Hip-Hop',
+                genreLabelAr: 'هيب هوب مصري / مهرجانات',
+                genreLabelEn: 'Egyptian Hip-Hop / Mahraganat',
+                featured: true,
+                audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+                coverUrl: '',
+                youtubeUrl: 'https://www.youtube.com/@mohamedgad4-gado',
+                soundcloudUrl: 'https://soundcloud.com',
+                synthStyle: 'mahraganat',
+                lyrics: `ابعد عنّي يا أبو وشّين.. كشفنا اللعب وفهمنا العين
+قدّامي حبيب وفي ضهري تبيع، فاكرنا نايمين؟
+لأ صحصح فوق.. ده إحنا ملوك السوق
+أمواج المستقبل داخلة، والكل يوسّع يروق!
+
+ضحكة صفرا وكلام مسموم، عامللي فيها الصاحب المظلوم
+وقت الشدّة فص ملح وداب، وقت المصلحة أوّل الموجودين
+محمد جاد على المايك يقول: الصاحب المزيف مالوش قبول!`
+            },
+            {
+                id: 'song-3',
+                title: 'إحنا الأصول يا صاحبي',
+                titleEn: 'Ehna El Osoul Ya Sahby',
+                genre: 'Mahraganat',
+                genreLabelAr: 'مهرجانات / شعبي',
+                genreLabelEn: 'Mahraganat / Shaabi',
+                featured: false,
+                audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
+                coverUrl: '',
+                youtubeUrl: 'https://www.youtube.com/@mohamedgad4-gado',
+                soundcloudUrl: 'https://soundcloud.com',
+                synthStyle: 'mahraganat',
+                lyrics: `إحنا الأصول يا صاحبي.. اسأل علينا في كل مكان
+الجدعنة في دمّنا تمشي، مش كلام على اللسان
+لو الدنيا مالت بيك، تلاقينا في ضهرك أمان
+ما نبيعش صاحبنا أبداً، ولا نخون العيش والملح كمان
+
+يا صاحبي الرخيص بيرخص، والدهب يفضل دهب
+في الشدّة معدن الرجال يبان وسط اللهب
+Future Waves ومحمد جاد.. ملوك الفن والأدب!`
+            },
+            {
+                id: 'song-4',
+                title: 'يا بخت اللي قلبه مات',
+                titleEn: 'Ya Bakht Elly Albo Mat',
+                genre: 'Mawal',
+                genreLabelAr: 'موال حزين',
+                genreLabelEn: 'Sad Mawal',
+                featured: false,
+                audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
+                coverUrl: '',
+                youtubeUrl: 'https://www.youtube.com/@mohamedgad4-gado',
+                soundcloudUrl: 'https://soundcloud.com',
+                synthStyle: 'mawal',
+                lyrics: `يا بخت اللي قلبه مات.. لا بيحزن ولا يشتاق
+ولا يسهر الليل الطويل يبكي على الفراق
+الطيب في الزمان ده شرب المرّ كاسات
+واللي قسى قلبه عاش مرتاح البال وساب الذكريات
+
+يا قلبي ليه بتحن للي جرحك وباع؟
+قفلنا باب الحنين، وقلنا للهموم وداع.`
+            },
+            {
+                id: 'song-5',
+                title: 'أمرّ من إبليس',
+                titleEn: 'Amarr Men Eblis',
+                genre: 'Shaabi',
+                genreLabelAr: 'شعبي / مهرجانات',
+                genreLabelEn: 'Shaabi / Mahraganat',
+                featured: false,
+                audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3',
+                coverUrl: '',
+                youtubeUrl: 'https://www.youtube.com/@mohamedgad4-gado',
+                soundcloudUrl: 'https://soundcloud.com',
+                synthStyle: 'shaabi',
+                lyrics: `شفت في الدنيا بشر.. مكرهم أمرّ من إبليس
+يلفّوا الحبل على رقبتك وهما لابسين ثوب القدّيس
+احذر من القريب قبل الغريب يا ابن الحلال
+ده الضربة ما بتجيش غير من اللي إدّيته الأمان والمال
+
+صحصح لنفسك واعرف مين معاك ومين عليك
+محمد جاد بيقولك: خليك أسد محدش يقدر يلوي إيديك!`
+            },
+            {
+                id: 'song-6',
+                title: 'آه يا ذكريات',
+                titleEn: 'Ah Ya Zekrayat',
+                genre: 'Shaabi',
+                genreLabelAr: 'موال / شعبي أصيل',
+                genreLabelEn: 'Mawal / Classic Shaabi',
+                featured: false,
+                audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3',
+                coverUrl: '',
+                youtubeUrl: 'https://www.youtube.com/@mohamedgad4-gado',
+                soundcloudUrl: 'https://soundcloud.com',
+                synthStyle: 'mawal',
+                lyrics: `آه يا ذكريات الماضي.. خدتينا لفين؟
+أيام البساطة والطيبة والضحكة اللي من العين
+كبرنا وكبر الهم معانا، واتفرّقوا الأحباب
+كل ما أفتح دفتر عمري ألاقي جرح وعتاب
+
+بس الأمل في الله كبير، بكرة الشمس تروق
+وتمشي سفينة أمواج المستقبل، ونعلى لفوق!`
+            },
+            {
+                id: 'song-7',
+                title: 'سَيَبْقَى العَدْلُ شِهَابًا يَثُورْ',
+                titleEn: 'Sayabqa Al-Adl',
+                genre: 'Vocal',
+                genreLabelAr: 'نشيد / غناء',
+                genreLabelEn: 'Vocal Anthem',
+                featured: false,
+                audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3',
+                coverUrl: '',
+                youtubeUrl: 'https://www.youtube.com/@mohamedgad4-gado',
+                soundcloudUrl: 'https://soundcloud.com',
+                synthStyle: 'vocal',
+                lyrics: `سَيَبْقَى العَدْلُ شِهَابًا يَثُورْ.. يَشُقُّ الظَّلَامَ وَيَهْدِي الصُّدُورْ
+فَلَا الظُّلْمُ دَامَ وَلَا البَغْيُ عَاشَ.. وَحَقُّ الكِرَامِ يَظَلُّ الجَسُورْ
+
+بِصَوْتِ اليَقِينِ نُغَنِّي الأَمَلْ.. وَنَبْنِي الغَدَ الحُرَّ دُونَ كَلَلْ
+مُحَمَّد جَاد يَصْدَحُ بِالحَقِّ دَوْماً.. فَوْقَ السَّحَابِ وَفَوْقَ الجَبَلْ!`
+            },
+            {
+                id: 'song-8',
+                title: 'لـِ عِشْقُ الرُّوحْ',
+                titleEn: 'Le Eshq El Rouh',
+                genre: 'Vocal',
+                genreLabelAr: 'رومانسي / غناء',
+                genreLabelEn: 'Romantic / Vocal',
+                featured: false,
+                audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3',
+                coverUrl: '',
+                youtubeUrl: 'https://www.youtube.com/@mohamedgad4-gado',
+                soundcloudUrl: 'https://soundcloud.com',
+                synthStyle: 'vocal',
+                lyrics: `لِـ عِشْقِ الرُّوحِ أَسْرَارٌ تُقَالْ.. وَفِي عَيْنَيْكِ يَسْكُنُنِي الخَيَالْ
+أُغَنِّي لِلْهَوَى نَغَمًا جَمِيلاً.. يَفُوقُ السِّحْرَ فِي لَيْلِ الجَمَالْ
+
+حَبِيبَةَ قَلْبِي يَا نَبْضَ السِّنِينْ.. إِلَيْكِ الحَنِينُ وَكُلُّ الأَنِينْ
+أَمْوَاجُ المُسْتَقْبَلِ تَعْزِفُ شَوْقِي.. لِتَبْقَى المَحَبَّةُ نُورَ الجَبِينْ.`
+            }
+        ];
+        /*__SONGS_END__*/
+
+        const DEFAULT_SETTINGS = {
+            youtube: 'https://www.youtube.com/@mohamedgad4-gado',
+            soundcloud: 'https://soundcloud.com/mohamed-gad',
+            tiktok: 'https://www.tiktok.com/@mohamedgad',
+            facebook: 'https://www.facebook.com/mohamedgad',
+            instagram: 'https://www.instagram.com/mohamedgad',
+            adminPin: '2026'
+        };
+
+        /**************************************************************
+         * 2. BILINGUAL DICTIONARY (ARABIC RTL & ENGLISH LTR)
+         **************************************************************/
+        const I18N = {
+            ar: {
+                zipBannerTitle: 'مساعد الهاتف (Android): تحميل المشروع الكامل (ZIP)',
+                zipBannerSub: 'اضغط الزر الذهبي لتحميل ملف مضغوط (mohamed-gad-future-waves-project.zip) يحتوي على جميع ملفات الموقع الـ 5 الجاهزة للرفع على GitHub و Render.',
+                zipDownloadBtnText: 'حمل المشروع كامل (ZIP)',
+                navZipShort: 'حمل المشروع كامل (ZIP)',
+                viewFilesBtnText: 'عرض الملفات (5)',
+                navHome: 'الرئيسية',
+                navLibrary: 'مكتبة الأغاني',
+                navSocials: 'المنصات الرسمية',
+                navAdmin: 'لوحة التحكم',
+                navAdminShort: 'الإدارة',
+                heroBadge: 'الإصدار الرسمي • أمواج المستقبل للإنتاج الفني',
+                heroTitle1: 'محمد جاد',
+                heroDesc: 'مرحباً بكم في المنصة الرسمية للفنان محمد جاد وعلامة Future Waves (أمواج المستقبل). استمع إلى أحدث المواويل، المهرجانات، والأغاني الشعبية والهيب هوب المصري بجودة عالية مع كلمات الأغاني الكاملة.',
+                heroPlayBtn: 'تشغيل أحدث الأعمال الآن',
+                heroExploreBtn: 'تصفح مكتبة الأغاني',
+                statSongsLabel: 'أعمال غنائية أصلية',
+                statLyricsLabel: 'كلمات وتوزيع أصلي',
+                statStreamLabel: 'استماع مباشر',
+                featuredSpotLabel: 'عمل مميز • FEATURED',
+                libSubheader: 'OFFICIAL DISCOGRAPHY • الأرشيف الغنائي',
+                libHeader: 'مكتبة أغاني محمد جاد',
+                searchPlaceholder: 'ابحث باسم الأغنية أو الكلمات...',
+                filterAll: 'الكل (All)',
+                filterMahraganat: 'مهرجانات (Mahraganat)',
+                filterMawal: 'موال (Mawal)',
+                filterShaabi: 'شعبي (Shaabi)',
+                filterHipHop: 'هيب هوب (Hip-Hop)',
+                filterVocal: 'رومانسي / نشيد (Vocal)',
+                socialSubheader: 'CONNECT WITH US • تابعنا الآن',
+                socialHeader: 'المنصات الرسمية لـ محمد جاد',
+                socialDesc: 'تابع القناة الرسمية على يوتيوب وحسابات أمواج المستقبل (Future Waves) على كافة منصات التواصل الاجتماعي للاستماع لكل جديد فور صدوره.',
+                footerRights: 'جميع الحقوق محفوظة © 2026 محمد جاد - كلمات وتوزيع وإنتاج أمواج المستقبل.',
+                adminGateTitle: 'بوابة الإدارة الآمنة',
+                adminGateSubtitle: 'أدخل رمز المرور السري للوصول إلى لوحة تحكم محمد جاد وإدارة الأغاني والروابط.',
+                adminPinHint: 'رمز الدخول الافتراضي للتجربة:',
+                adminLoginBtn: 'دخول للوحة التحكم',
+                cancelBtn: 'إلغاء',
+                adminDashTitle: 'لوحة تحكم الفنان محمد جاد',
+                adminDownloadZipBtn: 'تحميل المشروع الكامل (ZIP) بجميع تعديلاتك',
+                adminResetBtn: 'استعادة الأغاني الافتراضية',
+                adminBackToSite: 'العودة للموقع',
+                adminAddSongTitle: 'إضافة أغنية جديدة',
+                formTitleAr: 'اسم الأغنية (بالعربية) *',
+                formTitleEn: 'الاسم بالإنجليزية',
+                formGenre: 'التصنيف الموسيقي *',
+                formAudioSection: 'ملف الصوت (رابط MP3 مباشر أو رفع من هاتفك)',
+                formUploadMp3Label: 'أو اختر ملف MP3/WAV من هاتفك للتشغيل الفوري:',
+                formCoverSection: 'صورة الغلاف (اختياري - يتم توليد غلاف ذهبي تلقائياً)',
+                formLyricsLabel: 'كلمات الأغنية الكاملة *',
+                formFeaturedCheck: 'تعيين كعمل مميز في الواجهة الرئيسية (Featured)',
+                formSaveBtn: 'حفظ الأغنية في المكتبة',
+                adminManageSongsTitle: 'إدارة الأغاني الحالية',
+                tableColSong: 'الأغنية',
+                tableColGenre: 'التصنيف',
+                tableColFeatured: 'مميز',
+                tableColActions: 'إجراءات',
+                adminSocialsTitle: 'تحديث روابط المنصات ورمز الأمان',
+                saveSettingsBtn: 'حفظ الروابط والإعدادات',
+                lyricsCredits: 'كلمات وتوزيع: محمد جاد | Words & Arrangement: Mohamed Gad',
+                playThisTrackBtn: 'تشغيل الأغنية',
+                closeBtn: 'إغلاق',
+                playerLyricsBtn: 'كلمات الأغنية',
+                playerLyricsShort: 'الكلمات',
+                cardLyricsBtn: 'الكلمات',
+                visitChannel: 'زيارة المنصة',
+                copyLink: 'نسخ الرابط'
+            },
+            en: {
+                zipBannerTitle: 'Android Helper: Download Complete Project (.ZIP)',
+                zipBannerSub: 'Tap the gold button to download the complete runnable 5-file project (mohamed-gad-future-waves-project.zip) ready for GitHub & Render.',
+                zipDownloadBtnText: 'Download Complete Project (.ZIP)',
+                navZipShort: 'Download .ZIP',
+                viewFilesBtnText: 'View 5 Files',
+                navHome: 'Home',
+                navLibrary: 'Song Library',
+                navSocials: 'Official Links',
+                navAdmin: 'Admin Studio',
+                navAdminShort: 'Admin',
+                heroBadge: 'OFFICIAL PLATFORM • FUTURE WAVES PRODUCTION',
+                heroTitle1: 'مـحـمـد جـاد',
+                heroDesc: 'Welcome to the official hub of artist MOHAMED GAD and Future Waves (أمواج المستقبل). Stream authentic Egyptian Mawal, Mahraganat, Shaabi, and Hip-Hop tracks in high quality with full lyrics.',
+                heroPlayBtn: 'Play Featured Release',
+                heroExploreBtn: 'Explore Song Library',
+                statSongsLabel: 'Original Tracks',
+                statLyricsLabel: 'Original Lyrics & Beats',
+                statStreamLabel: 'Non-Stop Streaming',
+                featuredSpotLabel: 'FEATURED RELEASE • عمل مميز',
+                libSubheader: 'OFFICIAL DISCOGRAPHY • الأرشيف الغنائي',
+                libHeader: 'MOHAMED GAD Song Library',
+                searchPlaceholder: 'Search by song title or lyrics...',
+                filterAll: 'All Tracks',
+                filterMahraganat: 'Mahraganat',
+                filterMawal: 'Mawal',
+                filterShaabi: 'Shaabi',
+                filterHipHop: 'Egyptian Hip-Hop',
+                filterVocal: 'Vocal & Romantic',
+                socialSubheader: 'CONNECT WITH US • المنصات الرسمية',
+                socialHeader: 'Official Streaming & Social Hub',
+                socialDesc: 'Subscribe to Mohamed Gad on YouTube and follow Future Waves across all social platforms for exclusive new releases.',
+                footerRights: 'All Rights Reserved © 2026 MOHAMED GAD & Future Waves Production.',
+                adminGateTitle: 'Secure Studio Admin Gate',
+                adminGateSubtitle: 'Enter your secret studio PIN to manage songs, lyrics, and official social links.',
+                adminPinHint: 'Default Testing PIN:',
+                adminLoginBtn: 'Unlock Admin Studio',
+                cancelBtn: 'Cancel',
+                adminDashTitle: 'Mohamed Gad Studio CMS',
+                adminDownloadZipBtn: 'Download Complete Project (.ZIP) With Edits',
+                adminResetBtn: 'Reset Default Catalog',
+                adminBackToSite: 'Back to Website',
+                adminAddSongTitle: 'Add New Track',
+                formTitleAr: 'Song Title (Arabic) *',
+                formTitleEn: 'Song Title (English)',
+                formGenre: 'Musical Genre *',
+                formAudioSection: 'Audio Source (Direct MP3 URL or Upload From Phone)',
+                formUploadMp3Label: 'Or upload an MP3/WAV file from your phone:',
+                formCoverSection: 'Cover Image (Optional - Auto Luxury Gold SVG if blank)',
+                formLyricsLabel: 'Full Song Lyrics *',
+                formFeaturedCheck: 'Set as Featured Spotlight Track',
+                formSaveBtn: 'Save Track to Library',
+                adminManageSongsTitle: 'Manage Existing Tracks',
+                tableColSong: 'Track',
+                tableColGenre: 'Genre',
+                tableColFeatured: 'Featured',
+                tableColActions: 'Actions',
+                adminSocialsTitle: 'Update Social Links & Security PIN',
+                saveSettingsBtn: 'Save Links & Settings',
+                lyricsCredits: 'Words & Arrangement: Mohamed Gad | كلمات وتوزيع: محمد جاد',
+                playThisTrackBtn: 'Play Track Now',
+                closeBtn: 'Close',
+                playerLyricsBtn: 'Lyrics',
+                playerLyricsShort: 'Lyrics',
+                cardLyricsBtn: 'Lyrics',
+                visitChannel: 'Open Profile',
+                copyLink: 'Copy Link'
+            }
+        };
+
+        /**************************************************************
+         * 3. APPLICATION STATE & STORAGE INITIALIZATION
+         **************************************************************/
+        let currentLang = 'ar';
+        let currentGenreFilter = 'ALL';
+        let songs = [];
+        let settings = {};
+        let isAdminUnlocked = false;
+
+        // Audio Player State
+        let currentTrackIndex = 0;
+        let isPlaying = false;
+        let isShuffle = false;
+        let isRepeat = false;
+        let isMuted = false;
+        let activeLyricsSongId = null;
+
+        // Web Audio API Synthesizer Fallback State
+        let audioCtx = null;
+        let synthInterval = null;
+        let synthProgressTimer = null;
+        let isUsingSynthFallback = false;
+        let synthSimulatedTime = 0;
+        const SYNTH_DURATION = 160;
+
+        const audioEl = document.getElementById('htmlAudioElement');
+
+        function loadDatabase() {
+            try {
+                const savedSongs = localStorage.getItem('mg_futurewaves_songs_v1');
+                const savedSettings = localStorage.getItem('mg_futurewaves_settings_v1');
+                songs = savedSongs ? JSON.parse(savedSongs) : [...DEFAULT_SONGS];
+                settings = savedSettings ? JSON.parse(savedSettings) : { ...DEFAULT_SETTINGS };
+            } catch (e) {
+                songs = [...DEFAULT_SONGS];
+                settings = { ...DEFAULT_SETTINGS };
+            }
+        }
+
+        function saveDatabase() {
+            try {
+                localStorage.setItem('mg_futurewaves_songs_v1', JSON.stringify(songs));
+                localStorage.setItem('mg_futurewaves_settings_v1', JSON.stringify(settings));
+            } catch (e) {
+                showToast(currentLang === 'ar' ? 'تنبيه: حجم الملف المرفوع كبير للتخزين المؤقت، سيعمل خلال الجلسة الحالية.' : 'Note: Uploaded file is active for current session.');
+            }
+        }
+
+        /**************************************************************
+         * 4. LUXURY GOLD & BLACK SVG ARTWORK GENERATOR
+         **************************************************************/
+        function generateLuxuryCoverMarkup(song, sizeClass = "w-full h-full") {
+            if (song.coverUrl && song.coverUrl.trim() !== '') {
+                return `<img src="${song.coverUrl}" alt="${song.title}" class="${sizeClass} object-cover" onerror="this.onerror=null; this.parentElement.innerHTML=generateSvgFallback('${song.title.replace(/'/g, "\\'")}', '${(song.titleEn || '').replace(/'/g, "\\'")}')">`;
+            }
+            return generateSvgFallback(song.title, song.titleEn || 'Future Waves');
+        }
+
+        function generateSvgFallback(titleAr, titleEn) {
+            return `
+            <div class="w-full h-full bg-gradient-to-br from-[#191508] via-[#09090b] to-[#1c1605] flex flex-col items-center justify-center p-4 text-center relative select-none overflow-hidden">
+                <div class="absolute inset-2 border border-gold/30 rounded-xl pointer-events-none"></div>
+                <div class="w-12 h-12 rounded-full border border-gold/50 flex items-center justify-center mb-2 shadow-gold bg-obsidian/80">
+                    <i class="fa-solid fa-wave-square text-gold text-lg"></i>
+                </div>
+                <div class="font-display text-[10px] tracking-[0.25em] text-gold/80 uppercase">MOHAMED GAD</div>
+                <div class="font-arabic font-black text-base sm:text-lg gold-gradient-text mt-1 line-clamp-1">${titleAr}</div>
+                <div class="text-[10px] text-gray-400 mt-0.5 line-clamp-1">${titleEn}</div>
+                <div class="mt-2 text-[9px] uppercase tracking-widest px-2 py-0.5 rounded bg-gold/10 text-goldLight border border-gold/20">Future Waves • أمواج المستقبل</div>
+            </div>`;
+        }
+
+        /**************************************************************
+         * 5. RENDERING UI SECTIONS
+         **************************************************************/
+        function renderAll() {
+            renderHeroFeatured();
+            renderSongLibrary();
+            renderSocialCards();
+            renderAdminTable();
+            populateSettingsForm();
+            document.getElementById('statTotalSongs').textContent = songs.length;
+            updatePlayerMetadataUI();
+        }
+
+        function renderHeroFeatured() {
+            const featuredSong = songs.find(s => s.featured) || songs[0];
+            if (!featuredSong) return;
+
+            document.getElementById('heroFeaturedTitle').textContent = currentLang === 'ar' ? featuredSong.title : (featuredSong.titleEn || featuredSong.title);
+            document.getElementById('heroFeaturedGenre').textContent = currentLang === 'ar' ? (featuredSong.genreLabelAr || featuredSong.genre) : (featuredSong.genreLabelEn || featuredSong.genre);
+            document.getElementById('heroArtworkBox').innerHTML = `
+                ${generateLuxuryCoverMarkup(featuredSong)}
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <div class="w-16 h-16 rounded-full gold-gradient-bg flex items-center justify-center text-obsidian text-2xl shadow-gold">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                </div>
+            `;
+        }
+
+        function setGenreFilter(genre) {
+            currentGenreFilter = genre;
+            document.querySelectorAll('.genre-pill').forEach(btn => {
+                if (btn.getAttribute('data-genre') === genre) {
+                    btn.className = 'genre-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all gold-gradient-bg';
+                } else {
+                    btn.className = 'genre-pill px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all bg-charcoal gold-border text-gray-300 hover:text-gold';
+                }
+            });
+            renderSongLibrary();
+        }
+
+        function renderSongLibrary() {
+            const grid = document.getElementById('songsGrid');
+            const query = (document.getElementById('searchInput')?.value || '').trim().toLowerCase();
+
+            const filtered = songs.filter(song => {
+                const matchesGenre = currentGenreFilter === 'ALL' || song.genre.toLowerCase() === currentGenreFilter.toLowerCase();
+                const matchesSearch = !query ||
+                    song.title.toLowerCase().includes(query) ||
+                    (song.titleEn && song.titleEn.toLowerCase().includes(query)) ||
+                    (song.lyrics && song.lyrics.toLowerCase().includes(query));
+                return matchesGenre && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-16 text-center bg-charcoal/50 rounded-2xl gold-border">
+                        <i class="fa-solid fa-compact-disc text-4xl text-gold/50 mb-3"></i>
+                        <p class="text-gray-300 font-bold">${currentLang === 'ar' ? 'لا توجد أغاني مطابقة لبحثك' : 'No matching tracks found'}</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(song => {
+                const realIndex = songs.findIndex(s => s.id === song.id);
+                const isThisTrackPlaying = isPlaying && currentTrackIndex === realIndex;
+                const displayTitle = currentLang === 'ar' ? song.title : (song.titleEn || song.title);
+                const displaySub = currentLang === 'ar' ? (song.titleEn || 'Mohamed Gad') : song.title;
+                const displayGenre = currentLang === 'ar' ? (song.genreLabelAr || song.genre) : (song.genreLabelEn || song.genre);
+
+                return `
+                <div class="bg-charcoal rounded-2xl overflow-hidden gold-border hover:shadow-gold transition-all flex flex-col group">
+                    <!-- Cover Art Box -->
+                    <div onclick="playSpecificTrack(${realIndex})" class="relative aspect-square cursor-pointer overflow-hidden border-b border-gold/20">
+                        ${generateLuxuryCoverMarkup(song)}
+                        <!-- Play Overlay -->
+                        <div class="absolute inset-0 bg-black/50 ${isThisTrackPlaying ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity flex items-center justify-center">
+                            <div class="w-14 h-14 rounded-full gold-gradient-bg flex items-center justify-center text-obsidian text-xl shadow-gold transform group-hover:scale-105 transition-transform">
+                                <i class="fa-solid ${isThisTrackPlaying ? 'fa-pause' : 'fa-play'}"></i>
+                            </div>
+                        </div>
+                        ${song.featured ? `<span class="absolute top-3 start-3 px-2.5 py-1 rounded-full bg-gold text-obsidian font-extrabold text-[10px] uppercase tracking-wider shadow"><i class="fa-solid fa-star me-1"></i>${currentLang === 'ar' ? 'مميز' : 'Featured'}</span>` : ''}
+                        <span class="absolute bottom-3 end-3 px-2.5 py-1 rounded-lg bg-obsidian/90 border border-gold/40 text-goldLight text-[11px] font-semibold">${displayGenre}</span>
+                    </div>
+
+                    <!-- Card Details -->
+                    <div class="p-4 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-bold text-lg text-white group-hover:text-gold transition-colors line-clamp-1">${displayTitle}</h3>
+                            <p class="text-xs text-gray-400 mt-0.5 line-clamp-1">${displaySub} • Future Waves</p>
+                        </div>
+
+                        <!-- Action Buttons Row -->
+                        <div class="flex items-center justify-between gap-2 pt-2 border-t border-white/10">
+                            <button onclick="openLyricsModal('${song.id}')" class="flex-1 py-2 px-3 rounded-xl bg-obsidian gold-border text-goldLight hover:bg-gold hover:text-obsidian text-xs font-bold transition-all flex items-center justify-center gap-1.5">
+                                <i class="fa-solid fa-align-center"></i>
+                                <span>${I18N[currentLang].cardLyricsBtn}</span>
+                            </button>
+
+                            <a href="${song.youtubeUrl || settings.youtube}" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-obsidian gold-border text-red-500 hover:bg-red-600 hover:text-white flex items-center justify-center transition-colors" title="YouTube">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+
+                            <a href="${song.soundcloudUrl || settings.soundcloud}" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-obsidian gold-border text-orange-400 hover:bg-orange-500 hover:text-white flex items-center justify-center transition-colors" title="SoundCloud">
+                                <i class="fa-brands fa-soundcloud"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        function renderSocialCards() {
+            const platforms = [
+                { name: 'YouTube', handle: '@mohamedgad4-gado', url: settings.youtube, icon: 'fa-brands fa-youtube', accent: 'text-red-500' },
+                { name: 'SoundCloud', handle: 'MOHAMED GAD', url: settings.soundcloud, icon: 'fa-brands fa-soundcloud', accent: 'text-orange-400' },
+                { name: 'TikTok', handle: 'Future Waves', url: settings.tiktok, icon: 'fa-brands fa-tiktok', accent: 'text-pink-400' },
+                { name: 'Facebook', handle: 'محمد جاد الرسمي', url: settings.facebook, icon: 'fa-brands fa-facebook', accent: 'text-blue-500' },
+                { name: 'Instagram', handle: '@mohamedgad', url: settings.instagram, icon: 'fa-brands fa-instagram', accent: 'text-purple-400' }
+            ];
+
+            const container = document.getElementById('socialCardsContainer');
+            container.innerHTML = platforms.map(p => `
+                <div class="bg-charcoal p-5 rounded-2xl gold-border hover:shadow-gold transition-all flex flex-col justify-between gap-4 text-center">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-obsidian gold-border flex items-center justify-center mx-auto mb-3 text-2xl ${p.accent}">
+                            <i class="${p.icon}"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-base">${p.name}</h3>
+                        <p class="text-xs text-goldLight/80 mt-0.5 dir-ltr">${p.handle}</p>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <a href="${p.url}" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl gold-gradient-bg font-bold text-xs flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            <span>${I18N[currentLang].visitChannel}</span>
+                        </a>
+                        <button onclick="copyToClipboard('${p.url}')" class="w-full py-2 rounded-xl bg-obsidian gold-border text-gray-300 hover:text-gold text-xs font-semibold flex items-center justify-center gap-1.5">
+                            <i class="fa-regular fa-copy"></i>
+                            <span>${I18N[currentLang].copyLink}</span>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        /**************************************************************
+         * 6. REAL AUDIO PLAYER & WEB AUDIO SYNTH FALLBACK ENGINE
+         **************************************************************/
+        function updatePlayerMetadataUI() {
+            const song = songs[currentTrackIndex] || songs[0];
+            if (!song) return;
+
+            document.getElementById('playerTrackTitle').textContent = currentLang === 'ar' ? song.title : (song.titleEn || song.title);
+            document.getElementById('playerTrackSub').textContent = `${currentLang === 'ar' ? 'محمد جاد' : 'MOHAMED GAD'} • ${currentLang === 'ar' ? (song.genreLabelAr || song.genre) : (song.genreLabelEn || song.genre)}`;
+            document.getElementById('playerMiniCover').innerHTML = generateLuxuryCoverMarkup(song, "w-12 h-12");
+        }
+
+        function setEqualizerActive(active) {
+            const bars = document.querySelectorAll('#equalizerBars span');
+            bars.forEach(bar => {
+                if (active) bar.classList.remove('eq-paused');
+                else bar.classList.add('eq-paused');
+            });
+            const mainIcon = document.getElementById('mainPlayIcon');
+            const heroIcon = document.getElementById('heroCardPlayIcon');
+            if (active) {
+                mainIcon.className = 'fa-solid fa-pause';
+                if (heroIcon) heroIcon.className = 'fa-solid fa-pause';
+            } else {
+                mainIcon.className = 'fa-solid fa-play';
+                if (heroIcon) heroIcon.className = 'fa-solid fa-play';
+            }
+            renderSongLibrary();
+        }
+
+        function playFeaturedTrack() {
+            const idx = songs.findIndex(s => s.featured);
+            playSpecificTrack(idx >= 0 ? idx : 0);
+        }
+
+        function playSpecificTrack(index) {
+            if (index === currentTrackIndex && isPlaying) {
+                togglePlayPause();
+                return;
+            }
+            currentTrackIndex = index;
+            startPlayback();
+        }
+
+        function startPlayback() {
+            const song = songs[currentTrackIndex];
+            if (!song) return;
+
+            stopSynthFallback();
+            updatePlayerMetadataUI();
+
+            if (song.audioUrl && song.audioUrl.trim() !== '') {
+                isUsingSynthFallback = false;
+                audioEl.src = song.audioUrl;
+                audioEl.volume = isMuted ? 0 : parseFloat(document.getElementById('volumeSlider').value || 0.85);
+                const playPromise = audioEl.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        isPlaying = true;
+                        setEqualizerActive(true);
+                    }).catch(() => {
+                        startSynthFallback(song.synthStyle || 'mawal');
+                    });
+                }
+            } else {
+                startSynthFallback(song.synthStyle || 'mawal');
+            }
+        }
+
+        function togglePlayPause() {
+            if (isPlaying) {
+                if (isUsingSynthFallback) {
+                    stopSynthFallback();
+                } else {
+                    audioEl.pause();
+                }
+                isPlaying = false;
+                setEqualizerActive(false);
+            } else {
+                if (isUsingSynthFallback || !audioEl.src) {
+                    startPlayback();
+                } else {
+                    audioEl.play().then(() => {
+                        isPlaying = true;
+                        setEqualizerActive(true);
+                    }).catch(() => {
+                        startSynthFallback(songs[currentTrackIndex]?.synthStyle || 'mawal');
+                    });
+                }
+            }
+        }
+
+        function nextTrack() {
+            if (isShuffle && songs.length > 1) {
+                let randomIdx = currentTrackIndex;
+                while (randomIdx === currentTrackIndex) {
+                    randomIdx = Math.floor(Math.random() * songs.length);
+                }
+                currentTrackIndex = randomIdx;
+            } else {
+                currentTrackIndex = (currentTrackIndex + 1) % songs.length;
+            }
+            startPlayback();
+        }
+
+        function prevTrack() {
+            currentTrackIndex = (currentTrackIndex - 1 + songs.length) % songs.length;
+            startPlayback();
+        }
+
+        function toggleShuffle() {
+            isShuffle = !isShuffle;
+            document.getElementById('shuffleBtn').className = isShuffle
+                ? 'hidden sm:inline-flex text-gold text-xs transition-colors'
+                : 'hidden sm:inline-flex text-gray-400 hover:text-gold text-xs transition-colors';
+        }
+
+        function toggleRepeat() {
+            isRepeat = !isRepeat;
+            document.getElementById('repeatBtn').className = isRepeat
+                ? 'hidden sm:inline-flex text-gold text-xs transition-colors'
+                : 'hidden sm:inline-flex text-gray-400 hover:text-gold text-xs transition-colors';
+        }
+
+        function handleSeek(val) {
+            const pct = parseFloat(val);
+            if (isUsingSynthFallback) {
+                synthSimulatedTime = (pct / 100) * SYNTH_DURATION;
+                updateSeekUI(synthSimulatedTime, SYNTH_DURATION);
+            } else if (audioEl.duration) {
+                audioEl.currentTime = (pct / 100) * audioEl.duration;
+            }
+        }
+
+        function handleVolume(val) {
+            const v = parseFloat(val);
+            audioEl.volume = v;
+            isMuted = (v === 0);
+            document.getElementById('volumeIcon').className = isMuted ? 'fa-solid fa-volume-xmark text-red-400' : 'fa-solid fa-volume-high';
+        }
+
+        function toggleMute() {
+            isMuted = !isMuted;
+            audioEl.muted = isMuted;
+            document.getElementById('volumeIcon').className = isMuted ? 'fa-solid fa-volume-xmark text-red-400' : 'fa-solid fa-volume-high';
+        }
+
+        audioEl.addEventListener('timeupdate', () => {
+            if (!isUsingSynthFallback && audioEl.duration) {
+                updateSeekUI(audioEl.currentTime, audioEl.duration);
+            }
+        });
+
+        audioEl.addEventListener('ended', () => {
+            if (isRepeat) {
+                startPlayback();
+            } else {
+                nextTrack();
+            }
+        });
+
+        function formatTime(sec) {
+            if (!sec || isNaN(sec)) return '0:00';
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return `${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+
+        function updateSeekUI(current, total) {
+            const pct = total > 0 ? (current / total) * 100 : 0;
+            document.getElementById('seekSlider').value = pct;
+            document.getElementById('mobileSeekSlider').value = pct;
+            const curFormatted = formatTime(current);
+            const totFormatted = formatTime(total);
+            document.getElementById('currentTimeText').textContent = curFormatted;
+            document.getElementById('durationTimeText').textContent = totFormatted;
+            document.getElementById('mobileCurrentTime').textContent = curFormatted;
+            document.getElementById('mobileDurationTime').textContent = totFormatted;
+        }
+
+        function startSynthFallback(style = 'mawal') {
+            isUsingSynthFallback = true;
+            isPlaying = true;
+            setEqualizerActive(true);
+
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioContext();
+            }
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+
+            const hijazNotes = [293.66, 311.13, 369.99, 392.00, 440.00, 466.16, 523.25, 587.33];
+            let step = 0;
+            const tempoMs = style === 'mahraganat' ? 240 : 420;
+
+            synthInterval = setInterval(() => {
+                if (!isPlaying || isMuted) return;
+                const vol = parseFloat(document.getElementById('volumeSlider').value || 0.85) * 0.18;
+
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = style === 'mahraganat' ? 'sawtooth' : 'triangle';
+                const noteFreq = hijazNotes[step % hijazNotes.length];
+                osc.frequency.setValueAtTime(noteFreq, audioCtx.currentTime);
+
+                gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + (tempoMs / 1000));
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + (tempoMs / 1000));
+
+                if (step % 2 === 0) {
+                    const kickOsc = audioCtx.createOscillator();
+                    const kickGain = audioCtx.createGain();
+                    kickOsc.type = 'sine';
+                    kickOsc.frequency.setValueAtTime(110, audioCtx.currentTime);
+                    kickOsc.frequency.exponentialRampToValueAtTime(45, audioCtx.currentTime + 0.12);
+                    kickGain.gain.setValueAtTime(vol * 1.4, audioCtx.currentTime);
+                    kickGain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
+                    kickOsc.connect(kickGain);
+                    kickGain.connect(audioCtx.destination);
+                    kickOsc.start();
+                    kickOsc.stop(audioCtx.currentTime + 0.15);
+                }
+
+                step++;
+            }, tempoMs);
+
+            synthProgressTimer = setInterval(() => {
+                synthSimulatedTime += 1;
+                if (synthSimulatedTime >= SYNTH_DURATION) {
+                    synthSimulatedTime = 0;
+                    if (!isRepeat) nextTrack();
+                }
+                updateSeekUI(synthSimulatedTime, SYNTH_DURATION);
+            }, 1000);
+        }
+
+        function stopSynthFallback() {
+            if (synthInterval) clearInterval(synthInterval);
+            if (synthProgressTimer) clearInterval(synthProgressTimer);
+            synthInterval = null;
+            synthProgressTimer = null;
+        }
+
+        /**************************************************************
+         * 7. LYRICS SLIDE-UP MODAL
+         **************************************************************/
+        function openLyricsModal(songId) {
+            const song = songs.find(s => s.id === songId) || songs[currentTrackIndex];
+            if (!song) return;
+            activeLyricsSongId = song.id;
+            document.getElementById('lyricsModalTitle').textContent = currentLang === 'ar' ? song.title : (song.titleEn || song.title);
+            document.getElementById('lyricsModalGenre').textContent = currentLang === 'ar' ? (song.genreLabelAr || song.genre) : (song.genreLabelEn || song.genre);
+            document.getElementById('lyricsModalBody').textContent = song.lyrics;
+            document.getElementById('lyricsModal').classList.remove('hidden');
+        }
+
+        function openCurrentTrackLyrics() {
+            const song = songs[currentTrackIndex] || songs[0];
+            if (song) openLyricsModal(song.id);
+        }
+
+        function closeLyricsModal() {
+            document.getElementById('lyricsModal').classList.add('hidden');
+        }
+
+        function playSongFromLyricsModal() {
+            const idx = songs.findIndex(s => s.id === activeLyricsSongId);
+            if (idx >= 0) playSpecificTrack(idx);
+            closeLyricsModal();
+        }
+
+        /**************************************************************
+         * 8. BILINGUAL LANGUAGE SWITCHER (ARABIC RTL / ENGLISH LTR)
+         **************************************************************/
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const htmlEl = document.documentElement;
+            htmlEl.lang = currentLang;
+            htmlEl.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+
+            document.getElementById('langToggleText').textContent = currentLang === 'ar' ? 'English' : 'العربية';
+            document.getElementById('searchInput').placeholder = I18N[currentLang].searchPlaceholder;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (I18N[currentLang][key]) {
+                    el.textContent = I18N[currentLang][key];
+                }
+            });
+
+            renderAll();
+        }
+
+        /**************************************************************
+         * 9. SECURE ADMIN DASHBOARD & CRUD OPERATIONS
+         **************************************************************/
+        function switchView(viewName) {
+            const pub = document.getElementById('publicView');
+            const adm = document.getElementById('adminView');
+            if (viewName === 'admin') {
+                pub.classList.add('hidden');
+                adm.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                adm.classList.add('hidden');
+                pub.classList.remove('hidden');
+            }
+        }
+
+        function openAdminView() {
+            switchView('admin');
+            if (isAdminUnlocked) {
+                document.getElementById('adminLoginGate').classList.add('hidden');
+                document.getElementById('adminDashboardContent').classList.remove('hidden');
+            } else {
+                document.getElementById('adminLoginGate').classList.remove('hidden');
+                document.getElementById('adminDashboardContent').classList.add('hidden');
+            }
+        }
+
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const enteredPin = document.getElementById('adminPinInput').value.trim();
+            if (enteredPin === (settings.adminPin || '2026')) {
+                isAdminUnlocked = true;
+                document.getElementById('adminPinInput').value = '';
+                document.getElementById('adminLoginGate').classList.add('hidden');
+                document.getElementById('adminDashboardContent').classList.remove('hidden');
+                showToast(currentLang === 'ar' ? 'تم تسجيل الدخول إلى لوحة تحكم محمد جاد بنجاح!' : 'Welcome to Mohamed Gad Studio Admin!');
+            } else {
+                showToast(currentLang === 'ar' ? 'رمز المرور غير صحيح! الرمز الافتراضي هو 2026' : 'Invalid PIN! Default testing PIN is 2026', true);
+            }
+        }
+
+        function handleLocalAudioUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const objectUrl = URL.createObjectURL(file);
+            document.getElementById('songAudioUrlInput').value = objectUrl;
+            showToast(currentLang === 'ar' ? `تم تجهيز الملف الصوتي: ${file.name}` : `Loaded audio file: ${file.name}`);
+        }
+
+        function handleLocalCoverUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('songCoverUrlInput').value = e.target.result;
+                showToast(currentLang === 'ar' ? 'تم تحميل صورة الغلاف بنجاح!' : 'Cover image loaded!');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function handleSaveSong(e) {
+            e.preventDefault();
+            const editId = document.getElementById('editSongId').value;
+            const title = document.getElementById('songTitleInput').value.trim();
+            const titleEn = document.getElementById('songTitleEnInput').value.trim() || title;
+            const genre = document.getElementById('songGenreInput').value;
+            const audioUrl = document.getElementById('songAudioUrlInput').value.trim();
+            const coverUrl = document.getElementById('songCoverUrlInput').value.trim();
+            const youtubeUrl = document.getElementById('songYoutubeInput').value.trim() || settings.youtube;
+            const soundcloudUrl = document.getElementById('songSoundcloudInput').value.trim() || settings.soundcloud;
+            const lyrics = document.getElementById('songLyricsInput').value.trim();
+            const featured = document.getElementById('songFeaturedInput').checked;
+
+            const genreLabels = {
+                'Mawal': { ar: 'موال / شعبي', en: 'Mawal / Shaabi' },
+                'Mahraganat': { ar: 'مهرجانات / شعبي', en: 'Mahraganat / Shaabi' },
+                'Hip-Hop': { ar: 'هيب هوب مصري', en: 'Egyptian Hip-Hop' },
+                'Shaabi': { ar: 'شعبي أصيل', en: 'Classic Shaabi' },
+                'Vocal': { ar: 'رومانسي / نشيد', en: 'Vocal / Anthem' }
+            };
+
+            const songObj = {
+                id: editId || ('song-' + Date.now()),
+                title,
+                titleEn,
+                genre,
+                genreLabelAr: genreLabels[genre]?.ar || genre,
+                genreLabelEn: genreLabels[genre]?.en || genre,
+                featured,
+                audioUrl: audioUrl || 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+                coverUrl,
+                youtubeUrl,
+                soundcloudUrl,
+                synthStyle: genre.toLowerCase(),
+                lyrics
+            };
+
+            if (editId) {
+                const idx = songs.findIndex(s => s.id === editId);
+                if (idx >= 0) songs[idx] = songObj;
+                showToast(currentLang === 'ar' ? `تم تحديث أغنية "${title}" بنجاح!` : `Updated "${title}" successfully!`);
+            } else {
+                songs.unshift(songObj);
+                showToast(currentLang === 'ar' ? `تمت إضافة أغنية "${title}" إلى المكتبة!` : `Added "${title}" to library!`);
+            }
+
+            saveDatabase();
+            resetSongForm();
+            renderAll();
+        }
+
+        function editSong(songId) {
+            const song = songs.find(s => s.id === songId);
+            if (!song) return;
+
+            document.getElementById('editSongId').value = song.id;
+            document.getElementById('songTitleInput').value = song.title;
+            document.getElementById('songTitleEnInput').value = song.titleEn || '';
+            document.getElementById('songGenreInput').value = song.genre;
+            document.getElementById('songAudioUrlInput').value = song.audioUrl || '';
+            document.getElementById('songCoverUrlInput').value = song.coverUrl || '';
+            document.getElementById('songYoutubeInput').value = song.youtubeUrl || '';
+            document.getElementById('songSoundcloudInput').value = song.soundcloudUrl || '';
+            document.getElementById('songLyricsInput').value = song.lyrics || '';
+            document.getElementById('songFeaturedInput').checked = !!song.featured;
+
+            document.getElementById('cancelEditBtn').classList.remove('hidden');
+            document.getElementById('songSubmitBtnText').textContent = currentLang === 'ar' ? 'تحديث بيانات الأغنية' : 'Update Track';
+            document.getElementById('songCrudForm').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function deleteSong(songId) {
+            if (songs.length <= 1) {
+                showToast(currentLang === 'ar' ? 'يجب إبقاء أغنية واحدة على الأقل في المكتبة.' : 'At least one track must remain in the library.', true);
+                return;
+            }
+            const target = songs.find(s => s.id === songId);
+            songs = songs.filter(s => s.id !== songId);
+            if (currentTrackIndex >= songs.length) currentTrackIndex = 0;
+            saveDatabase();
+            renderAll();
+            showToast(currentLang === 'ar' ? `تم حذف "${target?.title || ''}" من المكتبة.` : `Deleted track from library.`);
+        }
+
+        function resetSongForm() {
+            document.getElementById('songCrudForm').reset();
+            document.getElementById('editSongId').value = '';
+            document.getElementById('cancelEditBtn').classList.add('hidden');
+            document.getElementById('songSubmitBtnText').textContent = I18N[currentLang].formSaveBtn;
+        }
+
+        function renderAdminTable() {
+            const tbody = document.getElementById('adminSongsTableBody');
+            if (!tbody) return;
+            tbody.innerHTML = songs.map((song, idx) => `
+                <tr class="hover:bg-white/5 transition-colors">
+                    <td class="py-3 px-2">
+                        <div class="font-bold text-white">${song.title}</div>
+                        <div class="text-xs text-gray-400">${song.titleEn || ''}</div>
+                    </td>
+                    <td class="py-3 px-2">
+                        <span class="px-2.5 py-1 rounded-lg bg-obsidian gold-border text-goldLight text-xs">${currentLang === 'ar' ? (song.genreLabelAr || song.genre) : song.genre}</span>
+                    </td>
+                    <td class="py-3 px-2 text-center">
+                        ${song.featured ? '<i class="fa-solid fa-star text-gold"></i>' : '<span class="text-gray-600">-</span>'}
+                    </td>
+                    <td class="py-3 px-2 text-end space-x-1 space-x-reverse">
+                        <button onclick="playSpecificTrack(${idx})" class="p-2 rounded-lg bg-obsidian gold-border text-gold hover:bg-gold hover:text-obsidian transition-colors" title="Play">
+                            <i class="fa-solid fa-play text-xs"></i>
+                        </button>
+                        <button onclick="editSong('${song.id}')" class="p-2 rounded-lg bg-obsidian gold-border text-blue-400 hover:bg-blue-500 hover:text-white transition-colors" title="Edit">
+                            <i class="fa-solid fa-pen text-xs"></i>
+                        </button>
+                        <button onclick="deleteSong('${song.id}')" class="p-2 rounded-lg bg-obsidian gold-border text-red-400 hover:bg-red-600 hover:text-white transition-colors" title="Delete">
+                            <i class="fa-solid fa-trash text-xs"></i>
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function populateSettingsForm() {
+            document.getElementById('setYoutube').value = settings.youtube || '';
+            document.getElementById('setSoundcloud').value = settings.soundcloud || '';
+            document.getElementById('setTiktok').value = settings.tiktok || '';
+            document.getElementById('setFacebook').value = settings.facebook || '';
+            document.getElementById('setInstagram').value = settings.instagram || '';
+            document.getElementById('setAdminPin').value = settings.adminPin || '2026';
+        }
+
+        function handleSaveSettings(e) {
+            e.preventDefault();
+            settings.youtube = document.getElementById('setYoutube').value.trim();
+            settings.soundcloud = document.getElementById('setSoundcloud').value.trim();
+            settings.tiktok = document.getElementById('setTiktok').value.trim();
+            settings.facebook = document.getElementById('setFacebook').value.trim();
+            settings.instagram = document.getElementById('setInstagram').value.trim();
+            settings.adminPin = document.getElementById('setAdminPin').value.trim() || '2026';
+
+            saveDatabase();
+            renderSocialCards();
+            showToast(currentLang === 'ar' ? 'تم حفظ الروابط الرسمية ورمز الأمان بنجاح!' : 'Saved official links and PIN!');
+        }
+
+        function resetDefaultCatalog() {
+            songs = [...DEFAULT_SONGS];
+            settings = { ...DEFAULT_SETTINGS };
+            saveDatabase();
+            renderAll();
+            showToast(currentLang === 'ar' ? 'تمت استعادة القائمة الأصلية لأغاني محمد جاد!' : 'Default Mohamed Gad catalog restored!');
+        }
+
+        /**************************************************************
+         * 10. COMPLETE PROJECT (.ZIP) GENERATOR FOR ANDROID & RENDER
+         **************************************************************/
+        function getPackageJsonContent() {
+            return JSON.stringify({
+                name: "mohamed-gad-future-waves",
+                version: "1.0.0",
+                description: "Official luxury music website for MOHAMED GAD (محمد جاد) and Future Waves (أمواج المستقبل)",
+                main: "server.js",
+                scripts: {
+                    start: "node server.js"
+                },
+                engines: {
+                    node: ">=16.0.0"
+                }
+            }, null, 2);
+        }
+
+        function getServerJsContent() {
+            return `/**
+ * Zero-Dependency Node.js HTTP Static Server for MOHAMED GAD & Future Waves
+ * Works automatically on Render Web Service or local Node.js without needing npm install!
+ */
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+
+const PORT = process.env.PORT || 3000;
+
+const MIME_TYPES = {
+    '.html': 'text/html; charset=utf-8',
+    '.css': 'text/css; charset=utf-8',
+    '.js': 'application/javascript; charset=utf-8',
+    '.json': 'application/json; charset=utf-8',
+    '.png': 'image/png',
+    '.jpg': 'image/jpeg',
+    '.jpeg': 'image/jpeg',
+    '.svg': 'image/svg+xml',
+    '.mp3': 'audio/mpeg',
+    '.wav': 'audio/wav',
+    '.ico': 'image/x-icon'
+};
+
+const server = http.createServer((req, res) => {
+    if (req.url === '/health') {
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        return res.end(JSON.stringify({ status: 'ok', artist: 'MOHAMED GAD', brand: 'Future Waves' }));
+    }
+
+    let safeUrl = req.url.split('?')[0];
+    if (safeUrl === '/' || safeUrl === '') safeUrl = '/index.html';
+
+    let filePath = path.join(__dirname, safeUrl);
+    if (!fs.existsSync(filePath)) {
+        filePath = path.join(__dirname, 'public', safeUrl);
+    }
+    if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
+        filePath = path.join(__dirname, 'index.html');
+    }
+
+    const ext = path.extname(filePath).toLowerCase();
+    const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+
+    fs.readFile(filePath, (err, content) => {
+        if (err) {
+            res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
+            res.end('Server Error');
+        } else {
+            res.writeHead(200, { 'Content-Type': contentType });
+            res.end(content);
+        }
+    });
+});
+
+server.listen(PORT, () => {
+    console.log('MOHAMED GAD & Future Waves server running on port ' + PORT);
+});
+`;
+        }
+
+        function getRenderYamlContent() {
+            return `services:
+  - type: web
+    name: mohamed-gad-future-waves
+    env: node
+    plan: free
+    buildCommand: echo "Ready"
+    startCommand: node server.js
+    healthCheckPath: /health
+`;
+        }
+
+        function getReadmeContent() {
+            return `# MOHAMED GAD (محمد جاد) & Future Waves (أمواج المستقبل) - Official Website Project
+
+## 1. محتويات ملف المشروع الكامل (Included Files)
+* \`index.html\` & \`public/index.html\` - الموقع الكامل باللون الأسود والذهبي، مشغل الموسيقى، مكتبة الأغاني، ولوحة التحكم (الرمز السري: \`2026\`).
+* \`server.js\` - خادم Node.js جاهز للعمل فوراً على Render بدون أي مكتبات خارجية.
+* \`package.json\` - ملف تشغيل المشروع التلقائي على Render.
+* \`render.yaml\` - ملف الإعداد التلقائي لمنصة Render.
+
+## 2. خطوات الرفع من هاتف أندرويد (Android Deployment Guide)
+1. قم بفك الضغط عن ملف \`mohamed-gad-future-waves-project.zip\` في هاتفك (تطبيق "ملفاتي / Files").
+2. افتح مستودعك (Repository) في موقع GitHub.com من متصفح Chrome.
+3. اضغط **Add file** ثم **Upload files** وارفع الملفات: \`index.html\` و \`server.js\` و \`package.json\` و \`render.yaml\`.
+4. اضغط الزر الأخضر **Commit changes** بالأسفل، وسيقوم موقع Render بتحديث ونشر موقعك تلقائياً!
+`;
+        }
+
+        function getUpdatedIndexHtmlContent() {
+            let rawHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+            const updatedSongsBlock = '/*__SONGS_START__*/\n        const DEFAULT_SONGS = ' + JSON.stringify(songs, null, 4) + ';\n        /*__SONGS_END__*/';
+            rawHtml = rawHtml.replace(/\/\*__SONGS_START__\*\/[\s\S]*?\/\*__SONGS_END__\*\//, updatedSongsBlock);
+            return rawHtml;
+        }
+
+        async function downloadCompleteProjectZip() {
+            if (typeof JSZip === 'undefined') {
+                showToast(currentLang === 'ar' ? 'جاري تحميل مكتبة الضغط، حاول مرة أخرى بعد ثانية.' : 'ZIP library loading, please try again.', true);
+                return;
+            }
+
+            showToast(currentLang === 'ar' ? 'جاري تجهيز المشروع الكامل (mohamed-gad-future-waves-project.zip)...' : 'Packaging mohamed-gad-future-waves-project.zip...');
+
+            const zip = new JSZip();
+            const htmlContent = getUpdatedIndexHtmlContent();
+
+            zip.file("index.html", htmlContent);
+            zip.folder("public").file("index.html", htmlContent);
+            zip.file("package.json", getPackageJsonContent());
+            zip.file("server.js", getServerJsContent());
+            zip.file("render.yaml", getRenderYamlContent());
+            zip.file("README.md", getReadmeContent());
+
+            const blob = await zip.generateAsync({ type: "blob" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "mohamed-gad-future-waves-project.zip";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            showToast(currentLang === 'ar' ? 'تم تحميل mohamed-gad-future-waves-project.zip في مجلد التنزيلات (Downloads)!' : 'Downloaded mohamed-gad-future-waves-project.zip to your phone!');
+        }
+
+        function openSourceFilesModal() {
+            document.getElementById('previewPackageJson').textContent = getPackageJsonContent();
+            document.getElementById('previewServerJs').textContent = getServerJsContent();
+            document.getElementById('previewRenderYaml').textContent = getRenderYamlContent();
+            document.getElementById('previewReadmeMd').textContent = getReadmeContent();
+            document.getElementById('sourceFilesModal').classList.remove('hidden');
+        }
+
+        function closeSourceFilesModal() {
+            document.getElementById('sourceFilesModal').classList.add('hidden');
+        }
+
+        function copySourceFile(type) {
+            if (type === 'package') copyToClipboard(getPackageJsonContent());
+            else if (type === 'server') copyToClipboard(getServerJsContent());
+            else if (type === 'render') copyToClipboard(getRenderYamlContent());
+            else if (type === 'readme') copyToClipboard(getReadmeContent());
+            else if (type === 'html') copyToClipboard(getUpdatedIndexHtmlContent());
+        }
+
+        /**************************************************************
+         * 11. UTILITIES (CLIPBOARD & TOAST NOTIFICATIONS)
+         **************************************************************/
+        function copyToClipboard(text) {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast(currentLang === 'ar' ? 'تم النسخ إلى الحافظة بنجاح!' : 'Copied to clipboard!');
+        }
+
+        function showToast(message, isError = false) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `px-5 py-3 rounded-2xl font-bold text-xs sm:text-sm shadow-gold-lg border flex items-center gap-2.5 transition-all duration-300 ${
+                isError ? 'bg-red-950 text-red-200 border-red-500' : 'bg-charcoal text-goldLight border-gold'
+            }`;
+            toast.innerHTML = `<i class="fa-solid ${isError ? 'fa-circle-exclamation text-red-400' : 'fa-circle-check text-gold'}"></i><span>${message}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 3400);
+        }
+
+        // Initialize Website on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadDatabase();
+            renderAll();
+        });
+    </script>
+</body>
+</html>
